@@ -1,24 +1,29 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+/*
+ * Course: MAD201 - Assignment 4
+ * Student: Ashish Prajapati - A00194842
+ * Description: Layout file that sets up the Stack Navigation headers.
+ */
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+import { Stack } from "expo-router";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <Stack>
+      
+      <Stack.Screen 
+        name="index" 
+        options={{ title: 'My Portfolio' }} 
+      />
+   
+      <Stack.Screen 
+        name="projects" 
+        options={{ title: 'My Projects' }} 
+      />
+      
+      <Stack.Screen 
+        name="contact" 
+        options={{ title: 'Contact Me' }} 
+      />
+    </Stack>
   );
 }
